@@ -13,6 +13,9 @@ class CheesecakeProject::CLI
     @recipes.each.with_index(1) do |index, recipe| 
       puts "#{index}.#{recipe}"
     end
+    
+    def hello(hello)
+    end
       
 
 end
