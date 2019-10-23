@@ -1,2 +1,0 @@
-class CheeseCakeProject::Cake  
-end 
