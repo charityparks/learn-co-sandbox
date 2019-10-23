@@ -1,0 +1,9 @@
+# shabang - this is saying that there is a ruby program coming. and this way we don't have to type in ruby in the terminal every time.
+
+#!/usr/bin/env ruby     
+
+
+require "bundler/setup"
+require "cheesecake_project"
+
+CheesecakeProject::CLI.new.call
