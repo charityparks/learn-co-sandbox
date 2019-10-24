@@ -1,8 +1,6 @@
-#this is the run file/ the executable file. this first line is the shBang.  this line says that we are programming in Ruby.
-
 #!/usr/bin/env ruby
 
-require "./lib/Cheesecake_Project"  #leave this like this per Juan
+require "./lib/Cheesecake_Project"  
 
 CheesecakeProject::CLI.new.call  
    # CheesecakeProject is a module, cli is a class, .new is a class method that triggers an instance method, .call is an instance method
