@@ -18,12 +18,16 @@ class CheesecakeProject::CLI
         end
         
   def get user_choice
-    chosen_number = gets.strip 
-    if valid_input(chosen_number)
-    end
-    
+    chosen_number = gets.strip.to_i
+    show_recipe_for(chosen_number) if valid_input(chosen_number, @recipes)
   end
   
-  def valid_input()
+  def valid_input(input, data)
+    input.to_i <= data.length && input.to_i > 0 
+  end
   
+  def show_recipe_for(chosen_number)
+    recipe = @recipes[chosen_number - 1]
+    puts "Here is your recipe #{recipe}."
+  end
 end
