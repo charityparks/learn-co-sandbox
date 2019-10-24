@@ -11,9 +11,19 @@ class CheesecakeProject::CLI
   # The @recipes is a class variable 
   
   def list_recipes
+    puts "Choose the number of the recipe you'd like to view."
     @recipes.each.with_index(1) do |recipe, index| 
             puts "#{index}.#{recipe}"
           end
         end
+        
+  def get user_choice
+    chosen_number = gets.strip 
+    if valid_input(chosen_number)
+    end
+    
+  end
+  
+  def valid_input()
   
 end
