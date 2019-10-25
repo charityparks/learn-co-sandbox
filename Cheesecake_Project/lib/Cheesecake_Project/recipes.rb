@@ -8,6 +8,7 @@ class CheesecakeProject::Recipes
   end
   
   def self.all
+    CheesecakeProject::Scraper.scrape_recipes if @@all.empty?
     @@all
   end
   
