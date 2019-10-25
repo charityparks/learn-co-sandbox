@@ -1,0 +1,5 @@
+class CheesecakeProject::Scraper
+  
+  
+  
+end
