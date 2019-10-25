@@ -2,5 +2,5 @@
 
 require "./lib/Cheesecake_Project"  
 
-CheesecakeProject::CLI.new.call  
+CheesecakeProject::Cli.new.call  
    # CheesecakeProject is a module, cli is a class, .new is a class method that triggers an instance method, .call is an instance method

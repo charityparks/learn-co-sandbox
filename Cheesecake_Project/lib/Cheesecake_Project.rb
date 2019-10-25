@@ -1,7 +1,10 @@
-# This is the environment file
+# This is the environment file.  It is letting it be aware of your cli and version files.
 
 require_relative "./Cheesecake_Project/version"
 require_relative "./Cheesecake_Project/cli"
+require_relative "./Cheesecake_Project/recipes"
+
+require 'pry'
 
 module CheesecakeProject
   class Error < StandardError; end

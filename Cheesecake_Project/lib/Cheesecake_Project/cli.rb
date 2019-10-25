@@ -1,13 +1,17 @@
-class CheesecakeProject::CLI
+class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and cli is the class inside the module
   def call
     puts "Enjoy these recipes!"
     get_recipes
     list_recipes
+    user_choice
   end
   
   def get_recipes
-    @recipes = ["Caramel Macchiato Cheesecake", "Apple Cheesecake with Caramel Sauce", "Turtles® Cheesecake", "Double Layer Pumpkin Cheesecake"]
+    @recipes = CheesecakeProject::Recipes.all
+    
+    #["Caramel Macchiato Cheesecake", "Apple Cheesecake with Caramel Sauce", "Turtles® Cheesecake", "Double Layer Pumpkin Cheesecake"]
   end
+  
   # The @recipes is a class variable 
   
   def list_recipes
@@ -17,7 +21,7 @@ class CheesecakeProject::CLI
           end
         end
         
-  def get user_choice
+  def user_choice
     chosen_number = gets.strip.to_i
     show_recipe_for(chosen_number) if valid_input(chosen_number, @recipes)
   end
@@ -28,6 +32,6 @@ class CheesecakeProject::CLI
   
   def show_recipe_for(chosen_number)
     recipe = @recipes[chosen_number - 1]
-    puts "Here is your recipe #{recipe}."
+    puts "Here is your recipe for #{recipe}."
   end
 end
