@@ -1,4 +1,4 @@
-class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and cli is the class inside the module
+class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and cli is the class inside the module. The cli is to                                      #interact with the user.
   def call
     puts "Enjoy these recipes!"
     get_recipes
@@ -32,6 +32,6 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
   
   def show_recipe_for(chosen_number)
     recipe = @recipes[chosen_number - 1]
-    puts "Here is your recipe for #{recipe}."
+    puts "Here is your recipe for the #{recipe}..."
   end
 end
