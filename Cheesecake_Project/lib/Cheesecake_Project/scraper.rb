@@ -7,7 +7,7 @@ class CheesecakeProject::Scraper
     
     recipes.each do |r|
       name = r.css("a").text
-      name = r.css("a").attribute("href").value 
+      url = r.css("a").attribute("href").value 
       
       CheesecakeProject::Recipes.new(name, url)
     end
@@ -20,7 +20,7 @@ class CheesecakeProject::Scraper
     
     ingredients.each do |ingredient|
       name = ingredient.css("span").text 
-      recipe.ingredient << name 
+      recipe.ingredients << name 
     end
     
     recipe.ingredients.pop

@@ -7,17 +7,18 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
   end
   
   def get_recipes
-    @recipes = CheesecakeProject::Recipes.all
+    CheesecakeProject::Scraper.scrape_recipes      #calling the scrape.recipes method
     
-    #["Caramel Macchiato Cheesecake", "Apple Cheesecake with Caramel Sauce", "Turtles® Cheesecake", "Double Layer Pumpkin Cheesecake"]
+    @recipes = CheesecakeProject::Recipes.all
   end
   
   # The @recipes is a class variable 
   
   def list_recipes
     puts "Choose the number of the recipe you'd like to see."
+    
     @recipes.each.with_index(1) do |recipe, index| 
-            puts "#{index}.#{recipe}"
+            puts "#{index}.#{recipe.name}"
           end
         end
         
@@ -32,11 +33,14 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
   
   def show_recipe_for(chosen_number)
     recipe = @recipes[chosen_number - 1]
+    
     CheesecakeProject::Scraper.scrape_ingredients(recipe)
     
     puts "Here is your recipe for the #{recipe}..."
     
     recipe.ingredients.each.with_index(1) do |ingredient, index|
       puts "#{index}. #{ingredient}"
+    end
   end
+  
 end

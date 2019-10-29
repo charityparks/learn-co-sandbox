@@ -1,14 +1,17 @@
 class CheesecakeProject::Recipes
   
+  attr_accessor :name, :url, :ingredients
+  
   @@all = []
   
-  def initialize(name)
+  def initialize(name, url)
     @name = name
+    @url = url
+    @ingredients = []
     save
   end
   
   def self.all
-    CheesecakeProject::Scraper.scrape_recipes if @@all.empty?
     @@all
   end
   
