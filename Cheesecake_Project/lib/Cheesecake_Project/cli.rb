@@ -36,7 +36,7 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
     
     CheesecakeProject::Scraper.scrape_ingredients(recipe)
     
-    puts "Here is your recipe for the #{recipe}..."
+    puts "Here is your recipe for the #{recipe.name}..."
     
     recipe.ingredients.each.with_index(1) do |ingredient, index|
       puts "#{index}. #{ingredient}"
