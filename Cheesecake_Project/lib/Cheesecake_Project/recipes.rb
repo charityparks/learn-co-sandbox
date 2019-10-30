@@ -1,6 +1,6 @@
 class CheesecakeProject::Recipes
   
-  attr_accessor :name, :url, :ingredients
+  attr_accessor :name, :url, :ingredients, :directions
   
   @@all = []
   
@@ -8,6 +8,7 @@ class CheesecakeProject::Recipes
     @name = name
     @url = url
     @ingredients = []
+    @directions = []
     save
   end
   

@@ -1,6 +1,6 @@
 class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and cli is the class inside the module. The cli is to                                      #interact with the user.
   def call
-    puts "Enjoy these recipes!"
+    puts "\nTop 10 Fall Cheesecake recipes!"
     get_recipes
     list_recipes
     user_choice
@@ -36,11 +36,23 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
     
     CheesecakeProject::Scraper.scrape_ingredients(recipe)
     
-    puts "Here is your recipe for the #{recipe.name}..."
+    puts "\nHere are the ingredients needed for the #{recipe.name}..."
     
     recipe.ingredients.each.with_index(1) do |ingredient, index|
       puts "#{index}. #{ingredient}"
     end
+    
+    get_directions(recipe)
   end
+  
+  def get_directions(recipe)  
+    CheesecakeProject::Scraper.scrape_directions(recipe)
+    
+      puts "Here are the cooking directions..."
+        recipe.directions.each.with_index(1) do |directions, index| 
+            puts "#{index}.#{directions}"
+          end
+        end
+    
   
 end

@@ -12,18 +12,35 @@ class CheesecakeProject::Scraper
       CheesecakeProject::Recipes.new(name, url)
     end
   end
+  
   def self.scrape_ingredients(recipe) #receiving an object/instance 
     doc = Nokogiri::HTML(open(recipe.url))
     
     ingredients = doc.css("#lst_ingredients_1 li")
     ingredients2 = doc.css("#lst_ingredients_2 li")
-    
+ 
     ingredients.each do |ingredient|
+      name = ingredient.css("span").text 
+
+      recipe.ingredients << name 
+    end  
+    ingredients2.each do |ingredient|
       name = ingredient.css("span").text 
       recipe.ingredients << name 
     end
-    
+   
     recipe.ingredients.pop
   end
   
+  def self.scrape_directions(recipe)        #receiving an object/instance 
+    doc = Nokogiri::HTML(open(recipe.url))
+    
+    directions = doc.css(".recipe-directions__list li")
+
+    directions.each do |direction|
+      
+      name = direction.css("span").text 
+        recipe.directions << name 
+    end
+  end
 end
