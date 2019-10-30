@@ -3,4 +3,8 @@
 require "./lib/Cheesecake_Project"  
 
 CheesecakeProject::Cli.new.call  
-   # CheesecakeProject is a module, cli is a class, .new creates a new cli, .call is an instance method
+
+   # .new creates a new cli
+   # CheesecakeProject is a module, cli is a class, .call is an instance method
+   # CheesecakeProject::Cli is written this way so that you know which cli you are talking about.  
+   # In this case the .new is a class method b/c the CLI class is the receiver of the method.

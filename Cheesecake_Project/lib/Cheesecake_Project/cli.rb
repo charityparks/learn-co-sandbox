@@ -25,7 +25,7 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
     show_recipe_for(chosen_number) if valid_input(chosen_number, @recipes)
   end
   
-  def valid_input(input, data)
+  def valid_input(input, data)                            #this is making surethe user input is an integer and is between 1 and 10                                                                           
     input.to_i <= data.length && input.to_i > 0 
   end
   
@@ -47,12 +47,9 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
     CheesecakeProject::Scraper.scrape_directions(recipe)
     
       puts "\nHere are the cooking directions..."
-        recipe.directions.pop
+        recipe.directions.pop                                        #.pop gets rid of the last element in an array...this was empty str
         recipe.directions.each.with_index(1) do |directions, index| 
             puts "#{index}.#{directions}"
-          end
-          
+        end
   end
-    
-  
 end

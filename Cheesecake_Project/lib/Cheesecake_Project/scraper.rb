@@ -1,6 +1,9 @@
 class CheesecakeProject::Scraper
   
   def self.scrape_recipes   #class method.  Why are you using a class method vs an instance method?? What is the difference?
+                            # If we don't want to create the object of class then we use the class method if we want call the method
+                            # through object of a class then we use the instance method
+                            
     doc = Nokogiri::HTML(open("http://dish.allrecipes.com/favorite-fall-cheesecakes"))
     
     recipes = doc.css(".entry-content h3")
