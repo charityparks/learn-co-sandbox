@@ -9,10 +9,8 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
   def get_recipes
     CheesecakeProject::Scraper.scrape_recipes      #calling the scrape.recipes method
     
-    @recipes = CheesecakeProject::Recipes.all
+    @recipes = CheesecakeProject::Recipes.all       # @recipes is an instance variable
   end
-  
-  # The @recipes is a class variable 
   
   def list_recipes
     puts "Choose the number of the recipe you'd like to see."
@@ -49,10 +47,12 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
     CheesecakeProject::Scraper.scrape_directions(recipe)
     
       puts "\nHere are the cooking directions..."
+        recipe.directions.pop
         recipe.directions.each.with_index(1) do |directions, index| 
             puts "#{index}.#{directions}"
           end
-        end
+          
+  end
     
   
 end
