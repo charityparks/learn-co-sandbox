@@ -1,6 +1,6 @@
 class CheesecakeProject::Recipes
   
-  attr_accessor :name, :url, :ingredients, :directions
+  attr_accessor :name, :url, :ingredients, :directions   #these are attributes of the object @Recipes
   
   @@all = []
   

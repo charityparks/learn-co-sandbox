@@ -17,12 +17,12 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
   def list_recipes
     puts "Choose the number of the recipe you'd like to see."
     
-    @recipes.each.with_index(1) do |recipe, index| 
-            puts "#{index}.#{recipe.name}"
-          end
+    @recipes.each.with_index(1) do |recipe, index|         # @recipes is the object that will be iterated over using the each method
+            puts "#{index}.#{recipe.name}"                 # Iterate means doing one thing multiple times (a loop)
+          end                                              # you iterate over collections such as hashes and arrays
         end
         
-  def user_choice
+  def user_choice                                            # making sure an integer is being used as opposed to a letter
     chosen_number = gets.strip.to_i
     show_recipe_for(chosen_number) if valid_input(chosen_number, @recipes)
   end
@@ -38,7 +38,7 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
     
     puts "\nHere are the ingredients needed for the #{recipe.name}..."
     
-    recipe.ingredients.each.with_index(1) do |ingredient, index|
+    recipe.ingredients.each.with_index(1) do |ingredient, index|            #iterating using the each method like above 
       puts "#{index}. #{ingredient}"
     end
     
@@ -48,7 +48,7 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
   def get_directions(recipe)  
     CheesecakeProject::Scraper.scrape_directions(recipe)
     
-      puts "Here are the cooking directions..."
+      puts "\nHere are the cooking directions..."
         recipe.directions.each.with_index(1) do |directions, index| 
             puts "#{index}.#{directions}"
           end
