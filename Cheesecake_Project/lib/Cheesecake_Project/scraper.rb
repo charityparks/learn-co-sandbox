@@ -4,8 +4,9 @@ class CheesecakeProject::Scraper
                             # If we don't want to create the object of class then we use the class method if we want call the method
                             # through object of a class then we use the instance method
                             
-    doc = Nokogiri::HTML(open("http://dish.allrecipes.com/favorite-fall-cheesecakes"))        # 1. open site  2. parse next
-    
+                                                                                         # 1. open site  2. parse next
+    doc = Nokogiri::HTML(open("http://dish.allrecipes.com/favorite-fall-cheesecakes"))
+
     recipes = doc.css(".entry-content h3")
     
     recipes.each do |r|
