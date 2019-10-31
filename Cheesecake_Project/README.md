@@ -1,10 +1,10 @@
 # CheesecakeProject
 
 Welcome!!!!
+In this gem you will be able to go to the AllRecipes website and extract the top 10 Fall Cheesecake Recipes which includes the recipe name, ingredients and cooking directions.  The User will be able to select a recipe name via number and it will return the ingredients and cooking directions. The User will be asked if they would like to see another recipe.  If yes, they will be able to choose another recipe and will get back the ingredients and cooking instructions.  If no, the program will exit.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Cheesecake_Project`. To experiment with that code, run `bin/console` for an interactive prompt.
+To execute the program:  ./bin/Cheesecake_Project
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
