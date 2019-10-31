@@ -2,8 +2,7 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
   def call
     puts "\nTop 10 Fall Cheesecake recipes!"
     get_recipes
-    list_recipes
-    user_choice
+    start
   end
   
   def get_recipes
@@ -52,4 +51,27 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
             puts "#{index}.#{directions}"
         end
   end
-end
+  
+  
+  def do_next         
+    puts "Would you like to see another recipe? y/n"          
+    input = gets.strip                         #get users input and strip takes out white space before and after what the user types.                                                         #then saving users input #into a variable called "input"          
+    if input == "y"             
+      start
+                                 #you will call start         
+      elsif input == "n" 
+        puts "Thank you for looking! Have a great day!"
+      exit                       #leave the program         
+      
+      else              
+        puts "I don't understand"             
+        do_next          
+      end     
+    end 
+    
+    def start
+      list_recipes
+      user_choice
+      do_next
+    end
+  end
