@@ -1,4 +1,4 @@
-class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and cli is the class inside the module. The cli is to                                      #interact with the user.
+class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and cli is the class inside the module. The cli is                                      #to interact with the user.
   def call
     puts "\nTop 10 Fall Cheesecake recipes!"
     get_recipes
@@ -24,12 +24,12 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
     show_recipe_for(chosen_number) if valid_input(chosen_number, @recipes)
   end
   
-  def valid_input(input, data)                            #this is making surethe user input is an integer and is between 1 and 10                                                                           
+  def valid_input(input, data)                            #this is making sure the user input is an integer and is between 1 and 10                                                                           
     input.to_i <= data.length && input.to_i > 0 
   end
   
   def show_recipe_for(chosen_number)
-    recipe = @recipes[chosen_number - 1]
+    recipe = @recipes[chosen_number - 1]                 #
     
     CheesecakeProject::Scraper.scrape_ingredients(recipe)
     
