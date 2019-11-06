@@ -5,7 +5,7 @@ require_relative "./Cheesecake_Project/cli"
 require_relative "./Cheesecake_Project/recipes"
 require_relative "./Cheesecake_Project/scraper"
 
-#require 'pry'
+require 'pry'
 require 'nokogiri'
 require 'open-uri'  ## this gem allows your program to look outside of local files and into the web
 
