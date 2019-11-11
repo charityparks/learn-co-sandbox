@@ -5,10 +5,7 @@ class CheesecakeProject::Scraper
                             # through object of a class then we use the instance method
                             
                                                                                          # 1. open site  2. parse next
-    doc = Nokogiri::HTML(open("http://dish.allrecipes.com/favorite-fall-cheesecakes"))
-
-
-    doc = Nokogiri::HTML(open("http://dish.allrecipes.com/favorite-fall-cheesecakes"))        # 1. open site  2. parse next
+    doc = Nokogiri::HTML(open("http://dish.allrecipes.com/favorite-fall-cheesecakes"))        
     recipes = doc.css(".entry-content h3")
     
     recipes.each do |r|
@@ -19,7 +16,7 @@ class CheesecakeProject::Scraper
     end
   end
   
-  def self.scrape_ingredients(recipe) #receiving an object/instance 
+  def self.scrape_ingredients(recipe)             #receiving an object/instance 
     doc = Nokogiri::HTML(open(recipe.url))
     
     ingredients = doc.css("#lst_ingredients_1 li")

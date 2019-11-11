@@ -29,7 +29,7 @@ class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and
   end
   
   def show_recipe_for(chosen_number)
-    recipe = @recipes[chosen_number - 1]                 
+    recipe = @recipes[chosen_number - 1]                 #  -1 because the index starts at 0
     
     CheesecakeProject::Scraper.scrape_ingredients(recipe)
     
