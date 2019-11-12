@@ -8,18 +8,14 @@ class CheesecakeProject::Scraper
      
     doc = Nokogiri::HTML(open("http://dish.allrecipes.com/favorite-fall-cheesecakes"))     
     
-    recipes = doc.css("div.article-content-container.two-col-content-container strong")
-    #.map { |link| link.css("a").children.text }
-    # recipe_names.reject!{ |e| e.empty? }
-    # recipe_url = doc.css("div.article-content-container.two-col-content-container strong").map { |link| link.css("a").attribute("href").value }
-    # recipe_names.reject!{ |e| e.empty? }
+    recipes = doc.css("div.article-content-container.two-col-content-container strong a")
     
-    recipes.each_with_index do |r, i|
-      if i != 1
-        name = r.css("a").text
-        url = r.css("a").attribute("href").value 
+    recipes.each do |r|
+     
+        name = r.text
+        url = r.attribute("href").value 
         CheesecakeProject::Recipes.new(name, url)
-      end
+      
       
       
       
@@ -29,16 +25,16 @@ class CheesecakeProject::Scraper
   def self.scrape_ingredients(recipe)             #receiving an object/instance 
     doc = Nokogiri::HTML(open(recipe.url))
     
-    ingredients = doc.css("#lst_ingredients_1 li")
-    ingredients2 = doc.css("#lst_ingredients_2 li")
+    ingredients = doc.css("#lst_ingredients_1 li span")
+    ingredients2 = doc.css("#lst_ingredients_2 li span")
  
     ingredients.each do |ingredient|
-      name = ingredient.css("span").text 
+      name = ingredient.text 
 
       recipe.ingredients << name 
     end  
     ingredients2.each do |ingredient|
-      name = ingredient.css("span").text 
+      name = ingredient.text 
       recipe.ingredients << name 
     end
    
@@ -51,9 +47,7 @@ class CheesecakeProject::Scraper
     directions = doc.css(".recipe-directions__list li")
 
     directions.each do |direction|
-      
-      name = direction.css("span").text 
-        recipe.directions << name 
+        recipe.directions << direction.css("span").text 
     end
   end
 end
