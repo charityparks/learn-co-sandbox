@@ -15,10 +15,7 @@ class CheesecakeProject::Scraper
         name = r.text
         url = r.attribute("href").value 
         CheesecakeProject::Recipes.new(name, url)
-      
-      
-      
-      
+       
     end
   end
   
@@ -30,15 +27,15 @@ class CheesecakeProject::Scraper
  
     ingredients.each do |ingredient|
       name = ingredient.text 
-
       recipe.ingredients << name 
     end  
+    
     ingredients2.each do |ingredient|
       name = ingredient.text 
       recipe.ingredients << name 
     end
    
-    recipe.ingredients.pop
+    recipe.ingredients.pop               #to get rid of the empty element
   end
   
   def self.scrape_directions(recipe)        #receiving an object/instance 
