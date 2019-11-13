@@ -1,4 +1,4 @@
-class CheesecakeProject::Cli      # Here the CheesecakeProject is the module and cli is the class inside the module. The cli is                                      #to interact with the user.
+class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. Here the CheesecakeProject is the module and cli is the                                        # class inside the module. The cli is to interact with the user.
   def call
     puts "\nTop 10 Fall Cheesecake recipes!"
     get_recipes
