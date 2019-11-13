@@ -1,4 +1,4 @@
-# This is the environment file.  It is letting it be aware of your cli and version files.
+# This is the environment file.  It is letting it be aware of your cli, scraper, recipes and version files.
 
 require_relative "./Cheesecake_Project/version"
 require_relative "./Cheesecake_Project/cli"

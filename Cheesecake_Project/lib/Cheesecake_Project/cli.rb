@@ -19,8 +19,8 @@ class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. He
           end                                              # you iterate over collections such as hashes and arrays
         end
         
-  def user_choice                                            # making sure an integer is being used as opposed to a letter
-    chosen_number = gets.strip.to_i
+  def user_choice                                            # making sure its an integer
+    chosen_number = gets.strip.to_i                          # strip gets rid of whitespace before and after user input
     show_recipe_for(chosen_number) if valid_input(chosen_number, @recipes)
   end
   
@@ -70,8 +70,8 @@ class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. He
     end 
     
     def start
-      list_recipes
-      user_choice
-      do_next
+      list_recipes                #shows the 10 recipe names
+      user_choice                 #user chooses a recipe by number
+      do_next                     #asks if user would like to see another recipe
     end
   end
