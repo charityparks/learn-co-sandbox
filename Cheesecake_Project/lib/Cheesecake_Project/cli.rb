@@ -9,6 +9,7 @@ class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. He
     CheesecakeProject::Scraper.scrape_recipes      #calling the scrape.recipes method
     
     @recipes = CheesecakeProject::Recipes.all       # @recipes is an instance variable
+    view_urls
   end
   
   def list_recipes
@@ -51,7 +52,7 @@ class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. He
             puts "#{index}.#{directions}"
         end
   end
-  
+
   
   def do_next         
     puts "Would you like to see another recipe? y/n"          
@@ -68,6 +69,10 @@ class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. He
         do_next          
       end     
     end 
+    
+    def view_urls
+      @recipes.collect { |url|binding.pry}
+    end
     
     def start
       list_recipes                #shows the 10 recipe names
