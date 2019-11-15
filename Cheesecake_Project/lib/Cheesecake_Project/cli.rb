@@ -71,7 +71,7 @@ class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. He
     end 
     
     def view_urls
-      
+       @recipes.each.with_index(1) do |recipe, index| 
       
     end
     
