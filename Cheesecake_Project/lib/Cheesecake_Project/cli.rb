@@ -71,8 +71,9 @@ class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. He
     end 
     
     def view_urls
-       @recipes.collect {|url| url}
+       @recipes.collect do |recipe| url
        puts "#{recipe.url}"
+     end
       
     end
     
