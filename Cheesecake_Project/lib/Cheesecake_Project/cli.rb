@@ -72,7 +72,7 @@ class CheesecakeProject::Cli      #This cli belongs to the CheesecakeProject. He
     
     def view_urls
        @recipes.collect {|url| url}
-       puts "#{@recipe.url binding.pry}"
+       puts "#{recipe.url}"
       
     end
     
